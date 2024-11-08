@@ -2,14 +2,14 @@ import { queryPineconeVectorStore } from "@/utils";
 import { Pinecone } from "@pinecone-database/pinecone";
 // import { Message, OpenAIStream, StreamData, StreamingTextResponse } from "ai";
 import { createGoogleGenerativeAI } from '@ai-sdk/google';
-import { generateText, Message, StreamData, streamText } from "ai";
+import { Message, StreamData, streamText } from "ai";
 
 // Allow streaming responses up to 30 seconds
 export const maxDuration = 60;
 // export const runtime = 'edge';
 
 const pinecone = new Pinecone({
-    apiKey: process.env.PINECONE_API_KEY ?? "",
+    apiKey: process.env.PINECONE_API_KEY!
 });
 
 const google = createGoogleGenerativeAI({
